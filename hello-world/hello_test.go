@@ -38,25 +38,26 @@ func TestHello(t *testing.T) {
 	})
 }
 
-// func TestHello(t *testing.T) {
-// 	type args struct {
-// 		name string
-// 	}
-// 	tests := []struct {
-// 		name string
-// 		args args
-// 		want string
-// 	}{
-// 		{"empty string", args{""}, "Hello, World"},
-// 		{"non-empty string", args{"Jizu"}, "Hello, Jizu"},
+func TestHelloWithTable(t *testing.T) {
+	type args struct {
+		name     string
+		language string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{"empty string", args{"", "English"}, "Hello, World"},
+		{"non-empty string", args{"Jizu", "English"}, "Hello, Jizu"},
 
-// 		// TODO: Add test cases.
-// 	}
-// 	for _, tt := range tests {
-// 		t.Run(tt.name, func(t *testing.T) {
-// 			if got := Hello(tt.args.name); got != tt.want {
-// 				t.Errorf("🛑 Hello() = %v, want %v", got, tt.want)
-// 			}
-// 		})
-// 	}
-// }
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := Hello(tt.args.name, tt.args.language); got != tt.want {
+				t.Errorf("🛑 Hello() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
