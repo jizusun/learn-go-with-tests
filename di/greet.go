@@ -5,11 +5,7 @@ import (
 	"io"
 )
 
-// Greet to write to console
+// Greet write to io.Writer
 func Greet(writer io.Writer, name string) {
 	fmt.Fprintf(writer, "Hello, %s", name)
 }
-
-// func main() {
-// 	Greet("jizu")
-// }
